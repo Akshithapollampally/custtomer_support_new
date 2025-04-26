@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import "./TotalTickets.css";
 
-const socket = io("http://localhost:8000");
+const socket = io("https://custtomer-support-new.onrender.com");
 
 const TotalTickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -16,7 +16,7 @@ const TotalTickets = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/tickets");
+        const response = await fetch("https://custtomer-support-new.onrender.com/api/tickets");
         const data = await response.json();
         if (data.success) {
           // Sort tickets by createdAt in descending order (LCFS)
